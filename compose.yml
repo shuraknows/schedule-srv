@@ -40,7 +40,7 @@ services:
       dockerfile: ./infra/docker/nginx/Dockerfile
     ports:
       - target: 80
-        published: ${WEB_PUBLISHED_PORT:-80}
+        published: ${WEB_PUBLISHED_PORT:-8089}
         protocol: tcp
         mode: host
     volumes:
@@ -54,7 +54,7 @@ services:
       dockerfile: ./infra/docker/mysql/Dockerfile
     ports:
       - target: 3306
-        published: ${DB_PUBLISHED_PORT:-3306}
+        published: ${DB_PUBLISHED_PORT:-3336}
         protocol: tcp
         mode: host
     configs:
@@ -71,11 +71,3 @@ services:
       - MYSQL_USER=${DB_USERNAME:-phper}
       - MYSQL_PASSWORD=${DB_PASSWORD:-secret}
       - MYSQL_ROOT_PASSWORD=${DB_PASSWORD:-secret}
-
-  mailpit:
-    image: axllent/mailpit
-    ports:
-      - target: 8025
-        published: ${MAILPIT_PUBLISHED_PORT:-8025}
-        protocol: tcp
-        mode: host
