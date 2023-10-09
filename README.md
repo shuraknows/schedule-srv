@@ -11,7 +11,7 @@
 
 ### How to run
 ```bash
-git clone git@github.com:shuraknows/schedule-srv.git
+git clone https://github.com/shuraknows/schedule-srv.git
 cd schedule-srv
 make install
 ```
